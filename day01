@@ -1,3 +1,4 @@
+program 01:
 public class ReverseStringForLoopExample {
     public static void main(String[] args) {
         String input = "temple";
@@ -10,5 +11,198 @@ public class ReverseStringForLoopExample {
         // Print the original and reversed strings
         System.out.println("Original String: " + input);
         System.out.println("Reversed String: " + reversed.toString());
+    }
+}
+program 02 :
+public class StringToIntExample {
+    public static void main(String[] args) {
+        String str = "1234"; // Replace with your desired string
+        try {
+            int value = Integer.parseInt(str);
+            System.out.println("Integer value: " + value);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid String");
+        }
+    }
+}
+program 03:
+import java.util.Scanner;
+
+public class UsernameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a username: ");
+        String username = scanner.nextLine();
+
+        if (isValidUsername(username)) {
+            System.out.println("Valid username!");
+        } else {
+            System.out.println("Invalid username. Please follow the rules.");
+        }
+    }
+
+    // Validate the username based on rules
+    private static boolean isValidUsername(String username) {
+        // Rule: Starts with a letter (uppercase or lowercase)
+        // followed by alphanumeric characters (letters or digits)
+        // and has a length between 6 and 30 characters.
+        String regex = "^[A-Za-z]\\w{5,29}$";
+
+        return username.matches(regex);
+    }
+}
+program 04:
+import java.util.Scanner;
+public class NameSorter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of names: ");
+        int n = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        String[] names = new String[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name " + (i + 1) + ": ");
+            names[i] = scanner.nextLine();
+        }
+        System.out.print("Sort in ascending (A) or descending (D) order? ");
+        char choice = scanner.next().charAt(0);
+        if (choice == 'A' || choice == 'a') {
+            bubbleSortAscending(names);
+        } else if (choice == 'D' || choice == 'd') {
+            bubbleSortDescending(names);
+        } else {
+            System.out.println("Invalid choice. Please enter 'A' or 'D'.");
+            return;
+        }
+        System.out.println("Sorted names:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+    private static void bubbleSortAscending(String[] arr) {
+    }
+    private static void bubbleSortDescending(String[] arr) {
+    }
+}
+program 05 :
+import java.util.Scanner;
+
+public class SpecialCharacterCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a line of text: ");
+        String inputLine = scanner.nextLine();
+
+        int specialCharCount = 0;
+
+        for (int i = 0; i < inputLine.length(); i++) {
+            char ch = inputLine.charAt(i);
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch)) {
+                System.out.println("Special character found: " + ch);
+                specialCharCount++;
+            }
+        }
+
+        System.out.println("Total special characters: " + specialCharCount);
+    }
+}
+program 06 :
+import java.io.*;
+public class VowelCounter {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter a string: ");
+        String input = reader.readLine().toLowerCase();
+
+        int vowelCount = 0;
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
+            }
+        }
+        System.out.println("Total number of vowels in the string: " + vowelCount);
+    }
+}
+program 07:
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+public class VowelConsonantSeparator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine().toLowerCase();
+        Set<Character> vowels = new HashSet<>();
+        Set<Character> consonants = new HashSet<>();
+        for (char ch : word.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                if (isVowel(ch)) {
+                    vowels.add(ch);
+                } else {
+                    consonants.add(ch);
+                }
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+    private static boolean isVowel(char ch) {
+        return "aeiou".contains(String.valueOf(ch));
+    }
+}
+program 08:
+import java.util.Scanner;
+public class CharacterSearch {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        System.out.print("Enter a character to search: ");
+        char targetChar = scanner.next().charAt(0);
+        int foundIndex = -1; // Initialize with an invalid index
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == targetChar) {
+                foundIndex = i;
+                break; // Exit the loop once the character is found
+            }
+        }
+        if (foundIndex != -1) {
+            System.out.println("Character '" + targetChar + "' found at index " + foundIndex);
+        } else {
+            System.out.println("Character '" + targetChar + "' not found in the string.");
+        }
+    }
+}
+program 09:
+import java.util.Arrays;
+import java.util.Scanner;
+public class ReverseAlphabeticalSort {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine().toLowerCase();
+        char[] charArray = word.toCharArray();
+        Arrays.sort(charArray); // Sort in alphabetical order
+        for (int i = 0; i < charArray.length / 2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[charArray.length - 1 - i];
+            charArray[charArray.length - 1 - i] = temp;
+        }
+        String result = new String(charArray);
+        System.out.println("Word in reverse alphabetical order: " + result);
+    }
+}
+program 10:
+import java.util.Scanner;
+public class VowelRemover {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        String result = input.replaceAll("[aeiouAEIOU]", "");
+        System.out.println("String after removing vowels: " + result);
     }
 }

@@ -1,4 +1,4 @@
-program 01:
+1) program 01:
 public class ReverseStringForLoopExample {
     public static void main(String[] args) {
         String input = "temple";
@@ -13,7 +13,7 @@ public class ReverseStringForLoopExample {
         System.out.println("Reversed String: " + reversed.toString());
     }
 }
-program 02 :
+2)program 02 :
 public class StringToIntExample {
     public static void main(String[] args) {
         String str = "1234"; // Replace with your desired string
@@ -25,7 +25,7 @@ public class StringToIntExample {
         }
     }
 }
-program 03:
+3)program 03:
 import java.util.Scanner;
 
 public class UsernameValidator {
@@ -52,7 +52,7 @@ public class UsernameValidator {
         return username.matches(regex);
     }
 }
-program 04:
+4)program 04:
 import java.util.Scanner;
 public class NameSorter {
     public static void main(String[] args) {
@@ -85,7 +85,7 @@ public class NameSorter {
     private static void bubbleSortDescending(String[] arr) {
     }
 }
-program 05 :
+5)program 05 :
 import java.util.Scanner;
 
 public class SpecialCharacterCounter {
@@ -108,7 +108,7 @@ public class SpecialCharacterCounter {
         System.out.println("Total special characters: " + specialCharCount);
     }
 }
-program 06 :
+6)program 06 :
 import java.io.*;
 public class VowelCounter {
     public static void main(String[] args) throws IOException {
@@ -126,7 +126,7 @@ public class VowelCounter {
         System.out.println("Total number of vowels in the string: " + vowelCount);
     }
 }
-program 07:
+7)program 07:
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -153,7 +153,7 @@ public class VowelConsonantSeparator {
         return "aeiou".contains(String.valueOf(ch));
     }
 }
-program 08:
+8)program 08:
 import java.util.Scanner;
 public class CharacterSearch {
     public static void main(String[] args) {
@@ -176,7 +176,7 @@ public class CharacterSearch {
         }
     }
 }
-program 09:
+9)program 09:
 import java.util.Arrays;
 import java.util.Scanner;
 public class ReverseAlphabeticalSort {
@@ -195,7 +195,7 @@ public class ReverseAlphabeticalSort {
         System.out.println("Word in reverse alphabetical order: " + result);
     }
 }
-program 10:
+10)program 10:
 import java.util.Scanner;
 public class VowelRemover {
     public static void main(String[] args) {

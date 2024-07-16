@@ -1,0 +1,41 @@
+programe 01:
+interface MyInterface {
+    default void display() {
+        System.out.println("Default method in interface");
+    }
+}
+
+class MyClass implements MyInterface {
+    public static void main(String[] args) {
+        MyClass obj = new MyClass();
+        obj.display();
+    }
+}
+program 02:
+interface Constants {
+    int MAX_VALUE = 100;
+    int MIN_VALUE = 0;
+}
+
+class TestConstants implements Constants {
+    public static void main(String[] args) {
+        System.out.println("Max Value: " + MAX_VALUE);
+        System.out.println("Min Value: " + MIN_VALUE);
+    }
+program 03:
+interface Printable {
+    void print();
+}
+
+ class Printer implements Printable {
+    public void print() {
+        System.out.println("Printing...");
+    }
+}
+
+ public class Main {
+    public static void main(String[] args) {
+        Printer printer = new Printer();
+        printer.print();
+    }
+}

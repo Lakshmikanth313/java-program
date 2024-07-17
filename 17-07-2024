@@ -1,0 +1,64 @@
+program 01:
+class Main {
+    public static void main(String[] args) {
+        try {
+            int divideByZero = 5 / 0;
+            System.out.println("Rest of code in try block");
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException => " + e.getMessage());
+        }
+    }
+}
+program 02:
+class Excep
+{
+ public static void main(String[] args)
+ {
+  try
+  {
+   int arr[]={1,2};
+   arr[2]=3/0;
+  } 
+  catch(ArithmeticException ae)
+  {
+   System.out.println("divide by zero");
+  }
+  catch(ArrayIndexOutOfBoundsException e)
+  {
+   System.out.println("array index out of bound exception");
+  }
+ }
+}
+program 03:
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            validateAge(13); 
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Rest of the code...");
+    }
+    public static void validateAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Person is not eligible to vote");
+        } else {
+            System.out.println("Person is eligible to vote!!");
+        }
+    }
+}
+program 04:
+public class MultipleCatchBlock1 {
+    public static void main(String[] args) {
+        try {
+            int[] a = new int[5];
+            a[5] = 30 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception occurs");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBounds Exception occurs");
+        }
+        System.out.println("Rest of the code");
+    }
+}
+  

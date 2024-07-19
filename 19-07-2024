@@ -1,0 +1,186 @@
+progrm 01:
+class MyClass {
+    private int a;
+    private int b;
+    public MyClass() {
+        this.a = 10;
+        this.b = 15;
+    }
+    public MyClass(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+    public void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();
+        obj1.disp(); 
+        MyClass obj2 = new MyClass(20, 25);
+        obj2.disp(); 
+    }
+}
+program 02:
+class NumberPrinter {
+    public void even() {
+        System.out.println("Even numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    public void odd() {
+        System.out.println("Odd numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    public void prime() {
+        System.out.println("Prime numbers from 1 to 20:");
+        for (int i = 2; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Helper method to check if a number is prime
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+class ExtendedNumberPrinter extends NumberPrinter {
+    
+    // Overriding even method
+    @Override
+    public void even() {
+        System.out.println("Even numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    @Override
+    public void odd() {
+        System.out.println("Odd numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+    @Override
+    public void prime() {
+        System.out.println("Prime numbers from 1 to 30:");
+        for (int i = 2; i <= 30; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        ExtendedNumberPrinter printer = new ExtendedNumberPrinter();
+        printer.even();
+        printer.odd();
+        printer.prime();
+    }
+}
+program 03:
+class Shape {
+    void area(int side) {
+        int squareArea = side * side;
+        System.out.println("Area of Square = " + squareArea);
+    }
+}
+class Rectangle extends Shape {
+    @Override
+    void area(int length, int width) {
+        int rectangleArea = length * width;
+        System.out.println("Area of Rectangle = " + rectangleArea);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Shape square = new Shape();
+        square.area(5); // Calculate and print area of a square
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.area(4, 6); // Calculate and print area of a rectangle
+    }
+}
+program 04 :
+class Calculation {
+    void sum(int a, int b) {
+        System.out.println("Sum of two numbers: " + (a + b));
+    }
+    void sum(int a, int b, int c) {
+        System.out.println("Sum of three numbers: " + (a + b + c));
+    }
+    public static void main(String[] args) {
+        Calculation cal = new Calculation();
+        cal.sum(20, 30, 60); // Calls the three-argument sum method
+        cal.sum(20, 20);    // Calls the two-argument sum method
+    }
+}
+program 05:
+interface Tree {
+    void fruits(String type, int quantity);
+    void leaves(String color, int count, boolean isEvergreen);
+    void flowers(String name, int petalCount, String fragrance, boolean hasNectar);
+}
+class Branch1 implements Tree {
+    @Override
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch1: " + quantity + " " + type + " fruits");
+    }
+    @Override
+    public void leaves(String color, int count, boolean isEvergreen) {
+        System.out.println("Branch1: " + count + " " + color + " leaves (Evergreen: " + isEvergreen + ")");
+    }
+    @Override
+    public void flowers(String name, int petalCount, String fragrance, boolean hasNectar) {
+        System.out.println("Branch1: " + name + " flowers (" + petalCount + " petals, Fragrance: " + fragrance + ")");
+    }
+}
+class Branch2 implements Tree {
+    @Override
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch2: " + quantity + " " + type + " fruits");
+    }
+    @Override
+    public void leaves(String color, int count, boolean isEvergreen) {
+        System.out.println("Branch2: " + count + " " + color + " leaves (Evergreen: " + isEvergreen + ")");
+    }
+    @Override
+    public void flowers(String name, int petalCount, String fragrance, boolean hasNectar) {
+        System.out.println("Branch2: " + name + " flowers (" + petalCount + " petals, Fragrance: " + fragrance + ")");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        branch1.fruits("Apple", 5);
+        branch1.leaves("Green", 100, true);
+        branch1.flowers("Rose", 10, "Sweet", true);
+        Branch2 branch2 = new Branch2();
+        branch2.fruits("Orange", 8);
+        branch2.leaves("Red", 80, false);
+        branch2.flowers("Lily", 6, "Subtle", false);
+    }
+}

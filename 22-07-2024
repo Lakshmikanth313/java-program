@@ -1,0 +1,300 @@
+program 01:
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        int ndays, years, weeks, days;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of days: ");
+        ndays = scanner.nextInt();
+        years = ndays / 365;
+        ndays %= 365;
+        weeks = ndays / 7;
+        ndays %= 7;
+        System.out.println("No. of years: " + years);
+        System.out.println("No. of weeks: " + weeks);
+        System.out.println("No. of days: " + ndays);
+    }
+}
+program 02:
+import java.util.Scanner;
+public class StudentManagement {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the total number of users: ");
+        int totalUsers = scanner.nextInt();
+        System.out.print("Enter the number of staff users: ");
+        int staffUsers = scanner.nextInt();
+        int studentUsers = totalUsers - staffUsers;
+        System.out.println("Student Users: " + studentUsers);
+    }
+}
+program 03:
+import java.util.Scanner;
+public class FactorsProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int num = scanner.nextInt();
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+        int factors = 0;
+        for (int i = 1; i <= Math.sqrt(num); ++i) {
+            if (num % i == 0) {
+                factors += 2;
+                if (i == num / i) {
+                    factors--; 
+                }
+            }
+        }
+        System.out.println("Number of factors = " + factors);
+        for (int i = 1; i <= Math.sqrt(num); ++i) {
+            if (num % i == 0) {
+                N--;
+                if (N == 0) {
+                    System.out.println(N + "th factor of " + num + " = " + i);
+                    break;
+                }
+            }
+        }
+    }
+}
+program 04:
+import java.util.Scanner;
+public class PrimeNumbers {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the value of n to compute the nth prime number: ");
+        int n = input.nextInt();
+        int num = 1;
+        int count = 0;
+        int i;
+        while (count < n) {
+            num++;
+            for (i = 2; i <= num; i++) {
+                if (isPrime(i)) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(n + "rd Prime number is " + num);
+        int primeCount = 0;
+        int nextNum = num + 1;
+        while (primeCount < n) {
+            if (isPrime(nextNum)) {
+                System.out.print(nextNum + ", ");
+                primeCount++;
+            }
+            nextNum++;
+        }
+    }
+    private static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+program 05:
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class PerfectSquareSumOfDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter lower range: ");
+        int lower = scanner.nextInt();
+        System.out.print("Enter upper range: ");
+        int upper = scanner.nextInt();
+        List<Integer> perfectSquares = new ArrayList<>();
+        for (int num = lower; num <= upper; num++) {
+            if (isPerfectSquare(num)) {
+                int sumOfDigits = calculateSumOfDigits(num);
+                if (sumOfDigits < 10) {
+                    perfectSquares.add(num);
+                }
+            }
+        }
+        System.out.println(perfectSquares);
+    }
+    private static boolean isPerfectSquare(int num) {
+        int sqrt = (int) Math.sqrt(num);
+        return sqrt * sqrt == num;
+    }
+    private static int calculateSumOfDigits(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+}
+program 06:
+import java.util.HashSet;
+import java.util.Set;
+public class UniquePermutations {
+    public static void main(String[] args) {
+        int givenNumber = 143;
+        String numString = Integer.toString(givenNumber);
+        Set<String> uniquePermutations = new HashSet<>();
+        generatePermutations(numString, "", uniquePermutations);
+        System.out.println("Permutations are:");
+        for (String perm : uniquePermutations) {
+            System.out.println(perm);
+        }
+    }
+    private static void generatePermutations(String remaining, String current, Set<String> uniquePerms) {
+        if (remaining.isEmpty()) {
+            uniquePerms.add(current);
+            return;
+        }
+        for (int i = 0; i < remaining.length(); i++) {
+            char digit = remaining.charAt(i);
+            String newRemaining = remaining.substring(0, i) + remaining.substring(i + 1);
+            generatePermutations(newRemaining, current + digit, uniquePerms);
+        }
+    }
+}
+program 07:
+import java.util.Scanner;
+public class NumberAndSquareArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the lower range: ");
+        int lowerRange = scanner.nextInt();
+        System.out.print("Enter the upper range: ");
+        int upperRange = scanner.nextInt();
+        int size = upperRange - lowerRange + 1;
+        int[][] numberAndSquareArray = new int[size][2];
+        for (int i = 0; i < size; i++) {
+            int number = lowerRange + i;
+            int square = number * number;
+            numberAndSquareArray[i][0] = number;
+            numberAndSquareArray[i][1] = square;
+        }
+        System.out.println("Resulting array:");
+        for (int i = 0; i < size; i++) {
+            System.out.printf("(%d, %d) ", numberAndSquareArray[i][0], numberAndSquareArray[i][1]);
+        }
+    }
+}
+program 08:
+import java.util.Scanner;
+class BankAccount {
+    private String depositorName;
+    private long accountNumber;
+    private String accountType;
+    private double balance;
+    public BankAccount(String name, long accNumber, String type) {
+        depositorName = name;
+        accountNumber = accNumber;
+        accountType = type;
+        balance = 500.00; // Minimum balance
+    }
+    public void readAccountDetails() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter depositor name: ");
+        depositorName = scanner.nextLine();
+        System.out.print("Enter account number: ");
+        accountNumber = scanner.nextLong();
+        System.out.print("Enter account type (Savings/Current): ");
+        accountType = scanner.next();
+    }
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Amount deposited successfully.");
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+    public void displayBalance() {
+        System.out.println("Account balance: Rs. " + balance);
+    }
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("", 0, "");
+        account.readAccountDetails();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the amount to deposit: ");
+        double depositAmount = scanner.nextDouble();
+        account.deposit(depositAmount);
+        account.displayBalance();
+    }
+}
+program 09;
+def reverse_and_add(n):
+    def is_palindrome(num):
+        # Convert the number to a string and check if it is equal to its reverse
+        return str(num) == str(num)[::-1]
+    iterations = 0
+    while iterations < 1000:
+        if is_palindrome(n):
+            print(f"{n} is a palindrome")
+            break
+        else:
+            n += int(str(n)[::-1])
+            iterations += 1
+    else:
+        print("No palindrome exists for the given number.")
+# Test cases
+reverse_and_add(7325)
+reverse_and_add(8765)
+reverse_and_add(-8765)
+reverse_and_add(0)
+reverse_and_add(87.57)  # Invalid input (not an integer)
+program 10:
+class Customer {
+    private int accountNo;
+    private String accName;
+    private double balance;
+    public Customer(int accountNo, String accName, double initialBalance) {
+        this.accountNo = accountNo;
+        this.accName = accName;
+        this.balance = initialBalance;
+    }
+    public synchronized void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit successful. New balance: " + balance);
+            notify(); 
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+    public synchronized void withdraw(double amount) {
+        if (amount > 0) {
+            while (balance < amount) {
+                try {
+                    System.out.println("Insufficient balance. Waiting for deposit...");
+                    wait(); // Wait for deposit
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            balance -= amount;
+            System.out.println("Withdrawal successful. New balance: " + balance);
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+}
+public class BankApp {
+    public static void main(String[] args) {
+        Customer customer = new Customer(12345, "John Doe", 10000.0);
+        Thread withdrawThread = new Thread(() -> customer.withdraw(12000));
+        Thread depositThread = new Thread(() -> customer.deposit(3000));
+        withdrawThread.start();
+        depositThread.start();
+        try {
+            withdrawThread.join();
+            depositThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}

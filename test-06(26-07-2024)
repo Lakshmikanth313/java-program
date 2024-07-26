@@ -1,0 +1,44 @@
+program 01:
+class MyClass {
+    private int a;
+    private int b;
+    public MyClass() {
+        this.a = 10;
+        this.b = 15;
+    }
+    public MyClass(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+    public void disp() {
+        System.out.println("a = " + a + ", b = " + b);
+    }
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass();
+        obj1.disp(); 
+        MyClass obj2 = new MyClass(20, 25);
+        obj2.disp(); 
+    }
+}
+program 02:
+class Shape {
+    void area(int side) {
+        int sqrArea = side * side;
+        System.out.println("Area of Square = " + sqrArea);
+    }
+}
+class Rectangle extends Shape {
+    @Override
+    void area(int length, int width) {
+        int rectArea = length * width;
+        System.out.println("Area of Rectangle = " + rectArea);
+    }
+    public static void main(String[] args) {
+        Rectangle rect = new Rectangle();
+        int side = 5; 
+        int length = 8;
+        int width = 6; 
+        rect.area(length, width); 
+        rect.area(side); 
+    }
+}
